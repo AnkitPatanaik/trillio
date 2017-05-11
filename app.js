@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
+var User = require('./models/user');
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -24,7 +25,20 @@ app.get('/', function (req, res) {
 
 app.post('/register', function (req, res) {
         console.log('register button is pressed');
-        console.log(req.body); //information from request is in here
+        //console.log(req.body); //information from request is in here
+
+        //create new user based on fields that were populated
+        var user = new User({
+                username: req.body.name,
+                password: req.body.password
+        });
+        
+        user.save(function(err, user) {
+                if (err) console.log(err);
+                console.log(user);
+        });
+
+        res.redirect('/');
 });
 
 app.listen(3000, function() {
