@@ -7,7 +7,8 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
-var User = require('./models/user');
+
+var users = require('./routes/users');
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -19,27 +20,7 @@ db.once('open', function() {
 //tell express to use bodyParser
 app.use (bodyParser.urlencoded({extended: true}));
 
-app.get('/', function (req, res) {
-        res.sendFile(__dirname + '/index.html');
-});
-
-app.post('/register', function (req, res) {
-        console.log('register button is pressed');
-        //console.log(req.body); //information from request is in here
-
-        //create new user based on fields that were populated
-        var user = new User({
-                username: req.body.name,
-                password: req.body.password
-        });
-        
-        user.save(function(err, user) {
-                if (err) console.log(err);
-                console.log(user);
-        });
-
-        res.redirect('/');
-});
+app.use('/', users); 
 
 app.listen(3000, function() {
         console.log('app is listening on port 3000');
