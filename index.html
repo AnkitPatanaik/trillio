@@ -1,23 +1,23 @@
-<!DOCTYPE html>
+<!DOCTYPEhtml>
 <html lang="en">
         <head>
                   <meta charset="UTF-8">
                     <title>TRILLIO</title>
         </head>
         <body>
+            <script type="text/javascript" src="js/board.js"></script>
         <center>
+                <h1><b>TRILLIO</b></h1>
+                <h2><i>Making dank beats since 2017.</h2></i>  
+                <h1>🔥🔥🔥🔥🔥🔥🔥🔥🔥</h1>
         
-        Making dank beats since 2017.  
-        <br>Originally created by your boyz in RM311. 
-        <br><h1>🔥🔥🔥🔥🔥🔥🔥🔥🔥</h1>
-        
-        <b>Temporary Register UI</b>
-        <form action="/register" method="POST">
-                  <input type="text" placeholder="name" name="name">
-                  <input type="text" placeholder="password" name="password">
-                  <button type="submit">Submit</button>
-        </form>
+        <br><canvas id="board" width="350" height="350"></canvas>
 
+        <script>
+        var canvas = document.getElementById("board");
+        var context = canvas.getContext("2d");
+        drawBoard(canvas, context); 
+        </script>
+        
         </center>
-        </body>
-</html>
+

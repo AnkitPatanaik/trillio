@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
          res.sendFile(path.resolve('./index.html'));
 });
 
-router.post('/register', function (req, res) {
+router.post('/createuser', function (req, res) {
          console.log('register button is pressed');
 
          //create new user based on fields that were populated
