@@ -8,6 +8,10 @@ router.get('/', function (req, res) {
          res.sendFile(path.resolve('./index.html'));
 });
 
+router.get('/register', function(req, res) {
+         res.sendFile(path.resolve('./register.html'));
+});
+
 router.post('/createuser', function (req, res) {
          console.log('register button is pressed');
 
