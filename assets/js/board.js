@@ -1,6 +1,24 @@
 var bw = 320;
 var bh = 320;
-var p = 10;
+var p = 0;
+var size = 40;
+
+var w = ~~ (bw / size);
+var h = ~~ (bh / size);
+
+var state = new Array(h);
+for (var y = 0; y < h; ++y) {
+    state[y] = new Array(w);
+}
+
+function fill(s, gx, gy, ctx) {
+      ctx.fillStyle = s;
+      ctx.fillRect(gx * size, gy * size, size, size);
+}
+
+function clear(gx, gy, ctx) {
+      ctx.clearRect((gx * size) + 1, (gy * size) + 0.5 , size - 0.5, size - 0.5);
+}
 
 function drawBoard(canvas, context){
         for (var x = 0; x <= bw; x += 40) {
@@ -15,14 +33,6 @@ function drawBoard(canvas, context){
 
         context.strokeStyle = "black";
         context.stroke();
-}
-
-function writeMessage(canvas, message) {
-        var context = canvas.getContext('2d');
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.font = '18pt Calibri';
-        context.fillStyle = 'black';
-        context.fillText(message, 10, 25);
 }
 
 function getMousePos(canvas, evt) {

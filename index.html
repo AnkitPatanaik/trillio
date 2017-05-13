@@ -20,9 +20,24 @@
 
             canvas.addEventListener('click', function(evt) {
                 var mousePos = getMousePos(canvas, evt);
-                var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-                //writeMessage(canvas, message);
-                console.log(message);
+                var gx = ~~(mousePos.x/size);
+                var gy = ~~(mousePos.y/size);
+
+                //var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+                //console.log(message);
+                var msg2 = 'Row: ' + gx + ' Column: ' + gy;
+                console.log(msg2);
+
+                if (state[gy][gx]) {
+                    // if pressed before, flash red
+                    clear(gx, gy, context);
+                    console.log('clear');
+                    state[gy][gx] = false;
+                } else {
+                       state[gy][gx] = true;
+                       fill('black', gx, gy, context);
+                }
+
              }, false);
         </script>
         
