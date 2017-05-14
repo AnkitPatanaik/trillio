@@ -6,6 +6,8 @@
         </head>
         <body>
         <script type="text/javascript" src="js/board.js"></script>
+        <script type="text/javascript" src="js/audio.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.3/howler.js"></script>
         <center>
                 <h1><b>TRILLIO</b></h1>
                 <h2><i>Making dank beats since 2017.</h2></i>  
@@ -23,9 +25,7 @@
                 var gx = ~~(mousePos.x/size);
                 var gy = ~~(mousePos.y/size);
 
-                //var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-                //console.log(message);
-                var msg2 = 'Row: ' + gx + ' Column: ' + gy;
+                var msg2 = 'Column: ' + gx + ' Row: ' + gy;
                 console.log(msg2);
 
                 if (state[gy][gx]) {
@@ -36,6 +36,7 @@
                 } else {
                        state[gy][gx] = true;
                        fill('black', gx, gy, context);
+                       playSound(gy);
                 }
 
              }, false);
