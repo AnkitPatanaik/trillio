@@ -29,18 +29,19 @@
                 console.log(msg2);
 
                 if (state[gy][gx]) {
-                    // if pressed before, flash red
                     clear(gx, gy, context);
                     console.log('clear');
                     state[gy][gx] = false;
                 } else {
                        state[gy][gx] = true;
                        fill('black', gx, gy, context);
-                       playSound(gy);
+                       //playSound(gy);
+                       //playColumn(gx);
                 }
-
              }, false);
         </script>
-        
+        <script>
+          var delay = 1000; //bpm
+          setInterval(playColumn, delay); 
+        </script>
         </center>
-

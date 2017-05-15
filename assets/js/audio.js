@@ -1,4 +1,6 @@
 //array of all 8 sounds, sound will correspond with row
+var col = 1; //keeps track of what col to play 
+var limit = 8;
 
 sounds = [
         'Clap (2).mp3',
@@ -13,6 +15,7 @@ sounds = [
 
 var prefix = '../audio/Samples1/'
 
+//plays 1 sound
 function playSound(row) {
   var soundFile = prefix + sounds[row];
 
@@ -21,3 +24,15 @@ function playSound(row) {
   });
   sound.play();
 } 
+
+function playColumn() {
+    for (var sound = 0; sound < h; sound++) {
+      if (state[sound][col] == true) {
+        playSound(sound);
+      }
+    }
+    col++;
+    if (col == limit) col = 0; //reset if end of board 
+    console.log('play column');
+}
+
