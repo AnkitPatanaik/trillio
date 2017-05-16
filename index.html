@@ -8,6 +8,7 @@
         <script type="text/javascript" src="js/board.js"></script>
         <script type="text/javascript" src="js/audio.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.3/howler.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <center>
                 <h1><b>TRILLIO</b></h1>
                 <h2><i>Making dank beats since 2017.</h2></i>  
@@ -35,13 +36,13 @@
                 } else {
                        state[gy][gx] = true;
                        fill('black', gx, gy, context);
-                       //playSound(gy);
-                       //playColumn(gx);
+                       //console.log(state);
+                       $.post('/room/updateboard', {board: state});
                 }
              }, false);
         </script>
         <script>
-          var delay = 1000; //bpm
-          setInterval(playColumn, delay); 
+          var delay = 500; // convert bpm to ms delay
+          setInterval(playColumn, delay); //handles looping 
         </script>
         </center>

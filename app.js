@@ -9,6 +9,7 @@ mongoose.connect('mongodb://localhost:27017/trillio');
 var db = mongoose.connection;
 
 var users = require('./routes/users');
+var rooms = require('./routes/rooms');
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -22,6 +23,7 @@ app.use (bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'assets')));
 
 app.use('/', users); 
+app.use('/room/', rooms);
 
 app.listen(3000, function() {
         console.log('app is listening on port 3000');

@@ -22,7 +22,7 @@ Directions to run
 5. Start node server
 
 	```
-	nodemon app.js
+	node app.js
 	```
 6. Server is now running on: localhost:3000
 7. When done, turn off Mongodb server to prevent issues when using in the future 
