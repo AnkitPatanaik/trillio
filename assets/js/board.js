@@ -9,6 +9,7 @@ var h = ~~ (bh / size);
 var state = new Array(h);
 for (var y = 0; y < h; ++y) {
     state[y] = new Array(w);
+    state[y].fill(false);
 }
 
 function fill(s, gx, gy, ctx) {

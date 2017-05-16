@@ -1,16 +1,16 @@
-var express = require('express');
-var router = express.Router();
-var path = require('path');
+const express = require('express');
+const router = express.Router();
+const path = require('path');
+const util = require('util');
 
 var Room = require('../models/room');
 
 router.post('/updateboard', function (req, res) {
         console.log('update board in db');
-        console.log(req);
-        console.log(res);
+        //console.log(util.inspect(req.body.board, { showHidden: true, depth: null }));
         
         var room = new Room({
-                board: req.body.state
+                board: req.body.board
         });
 
         //save user in db
