@@ -36,8 +36,9 @@
                 } else {
                        state[gy][gx] = true;
                        fill('black', gx, gy, context);
-                       //console.log(state);
-                       $.post('/room/updateboard', {board: state});
+                       //$.post('/room/updateboard', {
+                       //        board: state
+                       //});
                 }
              }, false);
         </script>

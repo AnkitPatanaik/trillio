@@ -6,6 +6,7 @@ var size = 40;
 var w = ~~ (bw / size);
 var h = ~~ (bh / size);
 
+//initialize empty board of false values
 var state = new Array(h);
 for (var y = 0; y < h; ++y) {
     state[y] = new Array(w);
