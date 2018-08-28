@@ -31,11 +31,15 @@ router.get('/getBoard', function (req, res) {
               }
       });
 });
+
 //use when trying to make new room
 router.post('/createRoom', function (req, res) {
         console.log('update board in db');
+        console.log('req: ' + req);
         //console.log(util.inspect(req.body.board, { showHidden: true, depth: null }));
         //create empty board to attach to new room
+        var h = 8;
+        var w = 8;
         var emptyBoard = new Array(h);
         for (var y = 0; y < h; ++y) {
                 emptyBoard[y] = new Array(w);
@@ -43,7 +47,6 @@ router.post('/createRoom', function (req, res) {
         }
 
         var room = new Room({
-                id: req.body.id,
                 name: req.body.name,
                 board: emptyBoard 
         });
@@ -52,7 +55,7 @@ router.post('/createRoom', function (req, res) {
         room.save(function(err,user) {
                 if (err) console.log(err);
                 console.log(room);
-                res.redirect('/');
+                res.redirect('/home');
         }); 
 });
 

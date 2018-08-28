@@ -1,0 +1,56 @@
+<!DOCTYPEhtml>
+<html lang="en">
+        <head>
+                  <meta charset="UTF-8">
+                  <title>TRILLIO</title>
+        </head>
+        <body>
+        <script type="text/javascript" src="js/board.js"></script>
+        <script type="text/javascript" src="js/audio.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.3/howler.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <center>
+                <h1><b>TRILLIO HOME PAGE</b></h1>
+                <h2><i>Making dank beats since 2017.</h2></i>  
+                <h1>🔥🔥🔥🔥🔥🔥🔥🔥🔥</h1>
+        
+        <br><canvas id="board" width="350" height="350"></canvas>
+
+        <script>
+            var canvas = document.getElementById("board");
+            var context = canvas.getContext("2d");
+            drawBoard(canvas, context); 
+
+            canvas.addEventListener('click', function(evt) {
+                var mousePos = getMousePos(canvas, evt);
+                var gx = ~~(mousePos.x/size);
+                var gy = ~~(mousePos.y/size);
+
+                var msg2 = 'Column: ' + gx + ' Row: ' + gy;
+                console.log(msg2);
+
+                if (state[gy][gx]) {
+                    clear(gx, gy, context);
+                    console.log('clear');
+                    state[gy][gx] = false;
+                } else {
+                       state[gy][gx] = true;
+                       fill('black', gx, gy, context);
+                       //$.post('/room/updateboard', {
+                       //        board: state
+                       //});
+                }
+             }, false);
+        </script>
+        <script>
+          var delay = 500; // convert bpm to ms delay
+          setInterval(playColumn, delay); //handles looping 
+        </script>
+        <br></br>
+        <form action="/room/createRoom" method="POST">
+          <input type="text" placeholder="room name" name="name">
+          <button type="submit">Create Room</button>
+        </form>
+        </center>
+        </body>
+        </html>
