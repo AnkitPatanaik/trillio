@@ -5,15 +5,15 @@ var path = require('path');
 var User = require('../models/user');
 
 router.get('/', function (req, res) {
-         res.sendFile(path.resolve('./index.html'));
+         res.sendFile(path.resolve('./assets//index.html'));
 });
 
 router.get('/register', function(req, res) {
-         res.sendFile(path.resolve('./register.html'));
+         res.sendFile(path.resolve('./assets//register.html'));
 });
 
 router.get('/home', function(req, res) {
-        res.sendFile(path.resolve('./home.html'));
+        res.sendFile(path.resolve('./assets/home.html'));
 });
 
 router.post('/createuser', function (req, res) {

@@ -8,8 +8,8 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/trillio');
 var db = mongoose.connection;
 
-var users = require('./routes/users');
-var rooms = require('./routes/rooms');
+var users = require('./src/backend/routes/users');
+var rooms = require('./src/backend/routes/rooms');
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
