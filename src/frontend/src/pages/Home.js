@@ -7,7 +7,7 @@ class Home extends React.Component {
     super(props);
     this.state = {
       credentials: {
-        email: '',
+        username: '',
         password: '',
       },
     };
@@ -28,8 +28,8 @@ class Home extends React.Component {
       <div>
         <center>
           <b>Trillio </b>
-          <InputComponent title="Username" name="username" onChange={this.onChange} type="username" />
-          <InputComponent title="Password" name="password" onChange={this.onChange} type="password" />
+          <InputComponent title="Username" name="username" onChange={this.onChange}/>
+          <InputComponent title="Password" name="password" onChange={this.onChange}/>
           <button onClick={this.onSave}>Register</button>
         </center>
       </div>
