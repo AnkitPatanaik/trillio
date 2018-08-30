@@ -6,7 +6,6 @@ function registerUserFetch() {
 }
 
 function registerSuccess(json) {
-  console.log(json);
   return { type: types.REGISTER_SUCCESS };
 }
 

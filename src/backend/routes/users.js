@@ -5,11 +5,11 @@ var path = require('path');
 var User = require('../models/user');
 
 router.get('/', function (req, res) {
-         res.sendFile(path.resolve('./assets//index.html'));
+         res.sendFile(path.resolve('./assets/index.html'));
 });
 
 router.get('/register', function(req, res) {
-         res.sendFile(path.resolve('./assets//register.html'));
+         res.sendFile(path.resolve('./assets/register.html'));
 });
 
 router.get('/home', function(req, res) {
@@ -17,19 +17,17 @@ router.get('/home', function(req, res) {
 });
 
 router.post('/create', function (req, res) {
-         console.log('register button is pressed');
-
          //create new user based on fields that were populated
+         console.log(req.body);
          var user = new User({
-                 username: req.body.name,
+                 username: req.body.username,
                  password: req.body.password
          });
 
          //save users to db
          user.save(function(err, user) {
-                 if (err) console.log(err);
-                 console.log(user);
-                 res.redirect('/');
+                 if (err) console.log("error: " + err);
+                 console.log("user: " + user);
          });
 });
 

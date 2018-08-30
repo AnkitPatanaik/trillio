@@ -43,9 +43,7 @@ class Home extends React.Component {
 // allows you to refer to state defined in reducers as the keys here 
 function mapStateToProps(state) {
   return {
-    successMessage: state.registrationReducer.successMessage,
-    failMessage: state.registrationReducer.failMessage,
-    loading: state.registrationReducer.loading,
+    placeholder: state.registrationReducer.isRegistered, //placeholder
   };
 }
 
