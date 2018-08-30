@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from 'react-redux';
+import { registerUser, registerSuccess, registerFailure } from '../actions/registrationActions';
 import InputComponent from "../components/InputComponent";
 
 class Home extends React.Component {
@@ -21,6 +23,7 @@ class Home extends React.Component {
 
   onSave = (event) => {
     event.preventDefault();
+    this.props.registerUser(this.state.credentials);
   }
 
   render = () => {
@@ -37,4 +40,22 @@ class Home extends React.Component {
   };
 }
 
-export default Home;
+// allows you to refer to state defined in reducers as the keys here 
+function mapStateToProps(state) {
+  return {
+    successMessage: state.registrationReducer.successMessage,
+    failMessage: state.registrationReducer.failMessage,
+    loading: state.registrationReducer.loading,
+  };
+}
+
+// lets you dispatch actions() as the keys here
+function mapDispatchToProps(dispatch) {
+  return {
+    registerUser: (credentials) => {
+      dispatch(registerUser(credentials));
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -16,7 +16,7 @@ router.get('/home', function(req, res) {
         res.sendFile(path.resolve('./assets/home.html'));
 });
 
-router.post('/createuser', function (req, res) {
+router.post('/create', function (req, res) {
          console.log('register button is pressed');
 
          //create new user based on fields that were populated
