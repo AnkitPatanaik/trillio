@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
+var cors = require('cors')
 
 mongoose.connect('mongodb://localhost:27017/trillio');
 var db = mongoose.connection;
@@ -21,6 +22,7 @@ db.once('open', function() {
 //tell express to use bodyParser
 app.use (bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'assets')));
+app.use(cors());
 
 app.use('/', users); 
 app.use('/room/', rooms);
