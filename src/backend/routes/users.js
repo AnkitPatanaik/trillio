@@ -1,6 +1,9 @@
 var express = require("express");
 var router = express.Router();
 var path = require("path");
+const jwt = require("jsonwebtoken");
+const config = require("../../../config");
+const SECRET = config.JWT_SECRET;
 
 var User = require("../models/user");
 
@@ -51,8 +54,23 @@ router.post("/login", function(req, res) {
       return res.status(404).send();
     }
 
+    //create jwt
+    const token = jwt.sign(
+      {
+        email: user.username,
+        userId: user._id
+      },
+      SECRET,
+      {
+          expiresIn: "7d"
+      }
+    );
+
+    //return jwt upon successful login
     console.log("successfully logged in");
-    return res.status(200).send();
+    return res.status(200).json({
+      token: token
+    });
   });
 });
 
