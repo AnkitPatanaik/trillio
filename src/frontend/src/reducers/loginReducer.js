@@ -2,7 +2,7 @@ import * as types from '../actions/actionTypes';
 
 const INITIAL_STATE = {
   jwt: "",
-  username: ""
+  username: "",
 };
 
 export default function loginReducer(state = INITIAL_STATE, action) {
@@ -13,7 +13,7 @@ export default function loginReducer(state = INITIAL_STATE, action) {
         ...state
       };
 
-    case types.REGISTER_FAILURE:
+    case types.LOGIN_USER_FAILURE:
       console.log('Login failed.');
       return {
         ...state

@@ -30,7 +30,7 @@ class LoginView extends React.Component {
     return (
       <div>
         <center>
-          <b>Trillio Login Page </b>
+          <b>Trillio Login Page 🌊🌊🌊🌊</b>
           <InputComponent title="Username" name="username" onChange={this.onChange}/>
           <InputComponent title="Password" name="password" onChange={this.onChange}/>
           <button onClick={this.onSave}>Login</button>
@@ -43,7 +43,7 @@ class LoginView extends React.Component {
 // allows you to refer to state defined in reducers as the keys here 
 function mapStateToProps(state) {
   return {
-    placeholder: state.loginUser.jwt, //placeholder
+    placeholder: state.registrationReducer.isRegistered, //placeholder
   };
 }
 

@@ -15,7 +15,7 @@ function loginUserFailure() {
 
 export function loginUser(credentials) {
     return dispatch => {
-        dispatch(registerUserFetch());
+        dispatch(loginUserFetch());
         loginApi
             .login(credentials)
             .then(json => dispatch(loginUserSuccess(json)))
