@@ -30,7 +30,7 @@ class LoginView extends React.Component {
     return (
       <div>
         <center>
-          <b>Trillio Login Page 🌊🌊🌊🌊</b>
+          <b>Trillio Login Page </b>
           <InputComponent title="Username" name="username" onChange={this.onChange}/>
           <InputComponent title="Password" name="password" onChange={this.onChange}/>
           <button onClick={this.onSave}>Login</button>

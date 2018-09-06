@@ -57,7 +57,7 @@ router.post("/login", function(req, res) {
     //create jwt
     const token = jwt.sign(
       {
-        email: user.username,
+        username: user.username,
         userId: user._id
       },
       SECRET,

@@ -19,6 +19,7 @@ export function loginUser(credentials) {
         loginApi
             .login(credentials)
             .then(json => { 
+                localStorage.setItem('jwt', json.token);
                 dispatch(loginUserSuccess(json));
             })
             .catch(error => {
