@@ -2,7 +2,7 @@ import * as types from "./actionTypes";
 import loginApi from "../api/loginApi";
 
 function loginUserFetch() {
-  return { type: types.LOGIN_USER_FAILURE };
+  return { type: types.LOGIN_USER_FETCH };
 }
 
 function loginUserSuccess() {
@@ -18,7 +18,9 @@ export function loginUser(credentials) {
         dispatch(loginUserFetch());
         loginApi
             .login(credentials)
-            .then(json => dispatch(loginUserSuccess(json)))
+            .then(json => { 
+                dispatch(loginUserSuccess(json));
+            })
             .catch(error => {
                 console.error(error);
                 dispatch(loginUserFailure());

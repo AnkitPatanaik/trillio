@@ -1,7 +1,7 @@
 import * as types from '../actions/actionTypes';
 
 const INITIAL_STATE = {
-  jwt: "",
+  isAuthenticated : false,
   username: "",
 };
 
@@ -10,7 +10,8 @@ export default function loginReducer(state = INITIAL_STATE, action) {
     case types.LOGIN_USER_SUCCESS:
       console.log('Login successful.');
       return {
-        ...state
+        ...state,
+        isAuthenticated: true,
       };
 
     case types.LOGIN_USER_FAILURE:

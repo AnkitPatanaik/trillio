@@ -43,7 +43,7 @@ class LoginView extends React.Component {
 // allows you to refer to state defined in reducers as the keys here 
 function mapStateToProps(state) {
   return {
-    placeholder: state.registrationReducer.isRegistered, //placeholder
+    placeholder: state.loginReducer.isAuthenticated, //placeholder
   };
 }
 
