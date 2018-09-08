@@ -29,12 +29,12 @@ class LoginView extends React.Component {
   render = () => {
     return (
       <section className="section">
-        <div className="login-box column is-4 box is-center">
+        <div className="login-box column is-4 box">
           <center>
               <b>Trillio Login Page </b>
               <InputComponent title="Username" name="username" onChange={this.onChange}/>
               <InputComponent title="Password" name="password" onChange={this.onChange}/>
-              <button onClick={this.onSave}>Login</button>
+              <button className="button" onClick={this.onSave}>Login</button>
           </center>
         </div>
       </section>

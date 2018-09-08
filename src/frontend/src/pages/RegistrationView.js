@@ -34,7 +34,7 @@ class RegistrationView extends React.Component {
               <b>Trillio Registration Page </b>
               <InputComponent title="Username" name="username" onChange={this.onChange}/>
               <InputComponent title="Password" name="password" onChange={this.onChange}/>
-              <button onClick={this.onSave}>Registration</button>
+              <button className="button" onClick={this.onSave}>Register</button>
           </center>
         </div>
       </section>
