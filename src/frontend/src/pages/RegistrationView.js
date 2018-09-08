@@ -29,12 +29,12 @@ class RegistrationView extends React.Component {
   render = () => {
     return (
       <section className="section">
-        <div className="login-box column is-4 box">
+        <div className="column is-4 box">
           <center>
-              <b>Trillio Login Page </b>
+              <b>Trillio Registration Page </b>
               <InputComponent title="Username" name="username" onChange={this.onChange}/>
               <InputComponent title="Password" name="password" onChange={this.onChange}/>
-              <button onClick={this.onSave}>Login</button>
+              <button onClick={this.onSave}>Registration</button>
           </center>
         </div>
       </section>
