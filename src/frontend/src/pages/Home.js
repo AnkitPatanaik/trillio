@@ -6,8 +6,10 @@ function Home() {
   return (
     <section className="section">
       <div className="container">
-        <RegistrationView />
-        <LoginView />
+        <center>
+          <RegistrationView />
+          <LoginView />
+        </center>
       </div>
     </section>
   );
