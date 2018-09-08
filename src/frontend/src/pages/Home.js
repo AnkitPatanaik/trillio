@@ -4,11 +4,12 @@ import RegistrationView from "./RegistrationView";
 
 function Home() {
   return (
-    <div >
-      <RegistrationView />
-      <br></br>
-      <LoginView />
-    </div>
+    <section className="section">
+      <div className="container">
+          <LoginView />
+          <RegistrationView />
+      </div>
+    </section>
   );
 }
 

@@ -28,14 +28,16 @@ class LoginView extends React.Component {
 
   render = () => {
     return (
-      <div>
-        <center>
-          <b>Trillio Login Page </b>
-          <InputComponent title="Username" name="username" onChange={this.onChange}/>
-          <InputComponent title="Password" name="password" onChange={this.onChange}/>
-          <button onClick={this.onSave}>Login</button>
-        </center>
-      </div>
+      <section className="section">
+        <div className="login-box column is-4 box is-center">
+          <center>
+              <b>Trillio Login Page </b>
+              <InputComponent title="Username" name="username" onChange={this.onChange}/>
+              <InputComponent title="Password" name="password" onChange={this.onChange}/>
+              <button onClick={this.onSave}>Login</button>
+          </center>
+        </div>
+      </section>
     );
   };
 }
