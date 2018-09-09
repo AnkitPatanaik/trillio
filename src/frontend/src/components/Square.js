@@ -1,16 +1,35 @@
 import React from "react";
 import { Rectangle } from "react-shapes";
+import ReactHowler from "react-howler";
 
-function Square(props) {
-  return (
-      <Rectangle
-        width={48}
-        height={48}
-        fill={{ color: "#dddddd" }}
-        stroke={{ color: "#3468d8" }}
-        strokeWidth={3}
-      />
-  );
+class Square extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      playing: false
+    };
+  }
+
+  playSound = () => {
+    this.setState({
+      playing: !this.state.playing //do the opposite of the current state
+    });
+  };
+
+  render() {
+    console.log(this.props.source);
+    return (
+      <div>
+        <ReactHowler
+          className="box"
+          src={this.props.source}
+          playing={this.state.playing}
+        />
+        <button className="button" onClick={this.playSound}>Play</button>
+      </div>
+    );
+  }
 }
 
 export default Square;
