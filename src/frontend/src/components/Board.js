@@ -1,16 +1,37 @@
 import React from "react";
-import { Row, Col } from 'react-simple-flex-grid';
+import { Row, Col } from "react-simple-flex-grid";
 import "react-simple-flex-grid/lib/main.css";
 
-function Board() {
-    let numRows = 8;
-    let numColumns = 8;
-  return (
+class Board extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-    <Row>
-        <Col className="card" span={1}>Column1</Col>
-    </Row>
-  );
+  createOneRow = numColumns => {
+    var i;
+    let squares = [];
+    for (i = 0; i < numColumns; i++) {
+      squares.push(
+        <Col className="card" span={2}>
+          Column {i}
+        </Col>
+      );
+    }
+    return squares;
+  };
+
+  createManyRows = (numRows, numColumns) => {
+    var i;
+    let rows = [];
+    for (i = 0; i < numRows; i++) {
+      rows.push(this.createOneRow(numColumns));
+    }
+    return rows;
+  };
+
+  render() {
+    return <div>{this.createManyRows(this.props.rows, this.props.columns)}</div>;
+  }
 }
 
 export default Board;

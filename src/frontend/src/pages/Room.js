@@ -7,7 +7,7 @@ function Room() {
       <div className="container">
         <center>
           <b>New Room</b>
-          <Board />
+          <Board rows={8} columns={8}/>
         </center>
       </div>
     </section>
