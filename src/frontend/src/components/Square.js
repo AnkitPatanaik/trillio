@@ -13,7 +13,7 @@ class Square extends React.Component {
 
   playSound = () => {
     this.setState({
-      playing: !this.state.playing //do the opposite of the current state
+      playing: true//do the opposite of the current state
     });
   };
 

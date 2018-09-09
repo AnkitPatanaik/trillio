@@ -17,31 +17,29 @@ class Board extends React.Component {
   }
 
   getSoundForRow = soundIndex => {
-    var prefix = '../assets/audio/Samples1/'
     //array of all 8 sounds, sound will correspond with row
     var sounds = [
-        sound1,
-        sound2,
-        sound3,
-        sound4,
-        sound5,
-        sound6,
-        sound7,
-        sound8
-    ]
-    //return prefix + sounds[soundIndex];
+      sound1,
+      sound2,
+      sound3,
+      sound4,
+      sound5,
+      sound6,
+      sound7,
+      sound8
+    ];
+
     return sounds[soundIndex];
-  }
+  };
 
   createOneRow = (numColumns, soundIndex) => {
     var i;
     var squares = [];
     var source = this.getSoundForRow(soundIndex);
-    
+
     for (i = 0; i < numColumns; i++) {
-      squares.push(<Square source={source} />);
+      squares.push(<Square className source={source} />);
     }
-    squares.push(<br />);
     return squares;
   };
 
@@ -49,14 +47,14 @@ class Board extends React.Component {
     var i;
     let rows = [];
     for (i = 0; i < numRows; i++) {
-      rows.push(this.createOneRow(numColumns, i));
+      rows.push(<div className="buttons has-addons is-centered">{this.createOneRow(numColumns, i)}</div>);
     }
     return rows;
   };
 
   render() {
     return (
-      <div>{this.createManyRows(this.props.rows, this.props.columns)}</div>
+        <div>{this.createManyRows(this.props.rows, this.props.columns)}</div>
     );
   }
 }
