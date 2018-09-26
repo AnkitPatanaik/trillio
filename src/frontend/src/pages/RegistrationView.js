@@ -28,14 +28,16 @@ class RegistrationView extends React.Component {
 
   render = () => {
     return (
-      <div>
-        <center>
-          <b>Trillio Register Page</b>
-          <InputComponent title="Username" name="username" onChange={this.onChange}/>
-          <InputComponent title="Password" name="password" onChange={this.onChange}/>
-          <button onClick={this.onSave}>Register</button>
-        </center>
-      </div>
+      <section className="section">
+        <div className="column is-4 box">
+          <center>
+              <b>Trillio Registration Page </b>
+              <InputComponent title="Username" name="username" onChange={this.onChange}/>
+              <InputComponent title="Password" name="password" onChange={this.onChange}/>
+              <button className="button" onClick={this.onSave}>Register</button>
+          </center>
+        </div>
+      </section>
     );
   };
 }
